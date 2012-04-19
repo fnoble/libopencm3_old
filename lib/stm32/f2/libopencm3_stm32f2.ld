@@ -47,15 +47,15 @@ SECTIONS
 	} > rom
 	__exidx_end = .;
 
-
 	_etext = .;
 
-	.data : {
+	_data_flash = .;
+	.data : AT (_data_flash) {
 		_data = .;
 		*(.data*)	/* Read-write initialized data */
 		. = ALIGN(4);
 		_edata = .;
-	} >ram AT >rom
+	} >ram
 
 	.bss : {
 		*(.bss*)	/* Read-write zero initialized data */
