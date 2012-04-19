@@ -42,7 +42,7 @@ typedef u32 mutex_t;
 #define MUTEX_UNLOCKED 0
 #define MUTEX_LOCKED	 1
 
-void mutex_lock(mutex_t m);
-void mutex_unlock(mutex_t m);
+void mutex_lock(mutex_t* m);
+void mutex_unlock(mutex_t* m);
 
 #endif

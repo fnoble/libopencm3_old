@@ -39,16 +39,16 @@ void __dmb()
 	__asm__ volatile ("dmb");
 }
 
-void mutex_lock(mutex_t m)
+void mutex_lock(mutex_t* m)
 {
 	u32 status = 0;
 
 	do {
 		/* Wait until the mutex is unlocked. */
-		while (__ldrex(&m) != MUTEX_UNLOCKED);
+		while (__ldrex(m) != MUTEX_UNLOCKED);
 
 		/* Try to acquire it. */
-		status = __strex(MUTEX_LOCKED, &m);
+		status = __strex(MUTEX_LOCKED, m);
 
 	/* Did we get it? If not then try again. */
 	} while (status != 0);
@@ -57,11 +57,11 @@ void mutex_lock(mutex_t m)
 	__dmb();
 }
 
-void mutex_unlock(mutex_t m)
+void mutex_unlock(mutex_t* m)
 {
 	__dmb();
 
 	/* Free the lock. */
-	m = MUTEX_UNLOCKED;
+	*m = MUTEX_UNLOCKED;
 }
 
