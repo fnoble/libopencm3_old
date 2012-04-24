@@ -116,7 +116,7 @@ bool timer_get_flag(u32 timer_peripheral, u32 flag)
 
 void timer_clear_flag(u32 timer_peripheral, u32 flag)
 {
-	TIM_SR(timer_peripheral) &= ~flag;
+	TIM_SR(timer_peripheral) = ~flag;
 }
 
 void timer_set_mode(u32 timer_peripheral, u8 clock_div,
