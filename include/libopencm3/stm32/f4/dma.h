@@ -192,7 +192,7 @@
 #define DMA2_S7M1AR			DMA2_SM1AR(7)
 
 /* DMA Stream x FIFO control register (DMA_SxFCR) */
-#define DMA_SFCR(port, n)		MMIO32(DMA_STREAM(port, n) + 0x10)
+#define DMA_SFCR(port, n)		MMIO32(DMA_STREAM(port, n) + 0x14)
 #define DMA1_SFCR(n)			DMA_SFCR(DMA1, n)
 #define DMA2_SFCR(n)			DMA_SFCR(DMA2, n)
 
