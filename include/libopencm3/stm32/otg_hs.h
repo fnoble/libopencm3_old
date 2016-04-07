@@ -266,6 +266,7 @@
 
 /* OTG_FS general core configuration register (OTG_HS_GCCFG) */
 /* Bits 31:21 - Reserved */
+#define OTG_HS_GCCFG_NOVBUSSENS  (1<<21)
 #define OTG_HS_GCCFG_SOFOUTEN		(1 << 20)
 #define OTG_HS_GCCFG_VBUSBSEN		(1 << 19)
 #define OTG_HS_GCCFG_VBUSASEN		(1 << 18)
